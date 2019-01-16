@@ -18,7 +18,7 @@ object UrlGroupCountWithMySql {
 
     //sc.setCheckpointDir("hdfs://")
     //2. 加载数据
-    val rdd1: RDD[String] = sc.textFile("")
+    val rdd1: RDD[String] = sc.textFile("e:/temp/itstar.log")
     //3. 将数据切分
     val rdd2: RDD[(String, Int)] = rdd1.map(line => {
       val strings: Array[String] = line.split("\t")
@@ -44,7 +44,7 @@ object UrlGroupCountWithMySql {
     //7. 把计算结果保存到mysql中
     rdd5.foreach(x =>{
       //把数据写到mysql
-      val conn: Connection = DriverManager.getConnection("", "", "")
+      val conn: Connection = DriverManager.getConnection("jdbc:mysql://192.168.1.150:3306/spark_urlcount?charactorEncoding=utf-8", "root", "TosinJia_1")
       //把spark结果插入到mysql中
       val sql: String = "INSERT INTO url_data(xueyuan,number_one) VALUES(?,?)"
       //执行sql

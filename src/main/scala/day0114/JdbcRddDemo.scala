@@ -17,12 +17,12 @@ object JdbcRddDemo {
 
     //匿名函数
     val connection = () => {
-      Class.forName("").newInstance()
-      DriverManager.getConnection("")
+      Class.forName("com.mysql.jdbc.Driver").newInstance()
+      DriverManager.getConnection("jdbc:mysql://192.168.1.150:3306/spark_urlcount?charactorEncoding=utf-8","root","TosinJia_1")
     }
 
     //查询数据
-    val jdbcRdd: JdbcRDD[(Int, String, String)] = new JdbcRDD(sc, connection, "", 1, 2, 2, mapRow => {
+    val jdbcRdd: JdbcRDD[(Int, String, String)] = new JdbcRDD(sc, connection, "SELECT * FROM url_data WHERE uid >= ? AND uid <= ?", 1, 2, 2, mapRow => {
       val uid = mapRow.getInt(1)
       val xueyuan = mapRow.getString(2)
       val number_one = mapRow.getString(3)
