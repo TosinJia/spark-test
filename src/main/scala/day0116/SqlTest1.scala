@@ -11,8 +11,8 @@ object SqlTest1 {
   def main(args: Array[String]): Unit = {
     //1. 构建SparkSession
     val sparkSession: SparkSession = SparkSession.builder().appName("SqlTest1").master("local[2]").getOrCreate()
-    //2. 创建RDD
-    val dataRdd: RDD[String] = sparkSession.sparkContext.textFile("hdfs://192.168.1.150:9000/testdata/spark/spark-user.txt")
+    //2. 创建RDD  e:/temp/spark-user.txt  hdfs://192.168.1.150:9000/testdata/spark/spark-user.txt
+    val dataRdd: RDD[String] = sparkSession.sparkContext.textFile("e:/temp/spark-user.txt")
 
     //3. 切分数据
     val splitRdd: RDD[Array[String]] = dataRdd.map(_.split("\t"))
