@@ -5,9 +5,10 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object MySort2 {
   def main(args: Array[String]): Unit = {
+    //1. spark程序入口
     val conf: SparkConf = new SparkConf().setAppName("").setMaster("local[2]")
     val sc: SparkContext = new SparkContext(conf)
-
+    //2. 创建数组
     val girls: Array[String] = Array("reba,18,80","mimi,22,100","liya,30,100","jingtian,18,78")
     //3. 并行化，转化RDD
     val grdd1: RDD[String] = sc.parallelize(girls)
@@ -23,7 +24,7 @@ object MySort2 {
       //元组输出
       (name, age, weight)
     })
-    //5. 模式匹配
+    //5. 模式匹配方式进行排序
     val sortedRdd: RDD[(String, Int, Int)] = grdd2.sortBy(s => {
       Girl2(s._1, s._2, s._3)
     })
