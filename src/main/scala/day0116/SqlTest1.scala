@@ -12,7 +12,7 @@ object SqlTest1 {
     //1. 构建SparkSession
     val sparkSession: SparkSession = SparkSession.builder().appName("SqlTest1").master("local[2]").getOrCreate()
     //2. 创建RDD
-    val dataRdd: RDD[String] = sparkSession.sparkContext.textFile("hdfs://192.168.1.150:9000/user.txt")
+    val dataRdd: RDD[String] = sparkSession.sparkContext.textFile("hdfs://192.168.1.150:9000/testdata/spark/spark-user.txt")
 
     //3. 切分数据
     val splitRdd: RDD[Array[String]] = dataRdd.map(_.split("\t"))
@@ -42,7 +42,7 @@ object SqlTest1 {
     //val usql: DataFrame = sparkSession.sql("select * from user_t")
     val usql: DataFrame = sparkSession.sql("select * from user_t order by age")
 
-    //9. 查看结果
+    //9. 查看结果 show databases;
     usql.show()
 
     //10. 释放资源
