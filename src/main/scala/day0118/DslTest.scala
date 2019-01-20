@@ -34,7 +34,7 @@ object DslTest {
     ))
 
     val dataFrame: DataFrame = sparkSession.createDataFrame(rowRdd, schema)
-    // 5 DSL风格 查询年龄大于18
+    // 5 DSL风格 查询年龄大于18 RDD DataFrame DataSet（更加智能的分布式数据集）
     // 导入隐式
     import sparkSession.implicits._
     val dataSet: Dataset[Row] = dataFrame.where($"age">18)
