@@ -11,7 +11,8 @@ object JsonSource {
     val dataFrame: DataFrame = sparkSession.read.json("/Users/tosin/Documents/IdeaProjects/spark-test/test-data/saveJson")
     // 3 处理数据
     import sparkSession.implicits._
-    val dataSet: Dataset[Row] = dataFrame.filter($"xueyuan"==="java")
+//    val dataSet: Dataset[Row] = dataFrame.filter($"xueyuan"==="java")
+    val dataSet: Dataset[Row] = dataFrame.filter($"xueyuan" like("%ja%"))
     // 4 触发action
     dataSet.show()
     // 5 关闭资源
