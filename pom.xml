@@ -53,13 +53,14 @@
             <version>${spark.version}</version>
         </dependency>
 
-
-
+        <!-- spark streaming依赖 -->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_2.11</artifactId>
             <version>${spark.version}</version>
         </dependency>
+
+
 
         <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
         <dependency>
