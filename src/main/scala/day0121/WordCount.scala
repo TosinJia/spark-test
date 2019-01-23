@@ -20,7 +20,7 @@ object WordCount {
     val conf: SparkConf = new SparkConf().setAppName("WordCount").setMaster("local[2]")
     val sc: SparkContext = new SparkContext(conf)
 
-    // 2 创建sparkContext
+    // 2 创建sparkContext 产生批次的时间2秒
     val streamingContext: StreamingContext = new StreamingContext(sc,Milliseconds(2000))
 
     // 3 创建Dsteam，首先接入数据源
