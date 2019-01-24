@@ -22,9 +22,14 @@ object StateKafkaWC {
     val streamingContext: StreamingContext = new StreamingContext(conf, Milliseconds(20000))
 
     //需要累加历史数据 checkpoint 如果结果很重要
-    //streamingContext.checkpoint("hdfs://:9000/ck")
+    //问题一：java.lang.IllegalArgumentException: requirement failed: The checkpoint directory has not been set. Please set it by StreamingContext.checkpoint().
+    //问题二：org.apache.hadoop.security.AccessControlException: Permission denied: user=TosinJia, access=WRITE, inode="/":root:supergroup:drwxr-xr-x
+    // [root@bd ~]# hdfs dfs -mkdir /test
+    // [root@bd ~]# hdfs dfs -chmod 777 /test
+    streamingContext.checkpoint("hdfs://192.168.1.150:9000/test")
     //2 接入kafka数据源
-    val zkQuorum = ":2181,:2181:2181"
+    val zkQuorum = "172.16.88.240:2181"
+    //val zkQuorum = "192.168.1.150:2181,192.168.1.151:2181,192.168.1.152:2181"
     // 组
     val groupId = "g1"
     // 主题

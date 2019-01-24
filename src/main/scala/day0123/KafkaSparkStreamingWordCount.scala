@@ -7,17 +7,16 @@ import org.apache.spark.streaming.{Milliseconds, StreamingContext}
 
 /**
   * 需求：kafka消费数据到sparkStreaming计算
-  *
   * */
 object KafkaSparkStreamingWordCount {
   def main(args: Array[String]): Unit = {
     //1 创建sparkStreaming
     val conf: SparkConf = new SparkConf().setAppName("KafkaSparkStreamingWordCount")
       .setMaster("local[2]")
-    // 2秒一个批次
+    // ?秒一个批次、打印一次
     val streamingContext: StreamingContext = new StreamingContext(conf, Milliseconds(2000))
     //2 接入kafka数据源（如何访问kafka集群？zookeeper） zk地址
-    val zkQuorum = ":2181,:2181,:2181"
+    val zkQuorum = "172.16.88.240:2181"
     //访问组
     val groupId = "g1"
     //访问主题 wc
@@ -32,6 +31,5 @@ object KafkaSparkStreamingWordCount {
     streamingContext.start()
     //5 关闭资源
     streamingContext.awaitTermination()
-
   }
 }
