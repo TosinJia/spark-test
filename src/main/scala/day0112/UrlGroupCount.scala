@@ -42,7 +42,6 @@ object UrlGroupCount {
       //倒序
       it.toList.sortBy(_._3).reverse.take(1)
     })
-    rdd5
     //7. 遍历打印
     rdd5.foreach(x => {
       println("学院："+x._1+"，访问第一的为："+x._2)
