@@ -40,7 +40,7 @@ object KafkaDirectWordCount {
     val topics: Set[String] = Set(topic)
     // 7 创建zookeeper目录（存储偏移量）
     val zKGroupTopicDirs: ZKGroupTopicDirs = new ZKGroupTopicDirs(group, topic)
-    // 8 获取zookeeper存储偏移量的路径 /consumer/g1/wcd.../offsets /topic
+    // 8 获取zookeeper存储偏移量的路径  consumers/g1/offsets/topic/0
     val zkTopicPath = s"${zKGroupTopicDirs.consumerOffsetDir}"
 
     // 9 设置kafka参数
