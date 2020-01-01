@@ -8,15 +8,15 @@ import org.apache.spark.{SparkConf, SparkContext}
  *
  * 删除掉.setMaster("local") , textFile hdfs路径 打包，上传
  *
- * spark-submit --master spark://spark81:7077 --class mydemo.WordCount jars/wc.jar hdfs://bd-01-01:9000/word.txt
+ * ./bin/spark-submit --master spark://bd-01-01:7077 --class day191227.WordCountScala /root/jars/spark-test-1.0-SNAPSHOT.jar hdfs://bd-01-01:9000/word.txt
  * 打印内容查看 web app id stdout
  */
 object WordCountScala extends App {
   //获取Spark环境，setAppName定义程序名称，setMaster指定任务运行模式
   //一般在企业中先在测试环境运行，通过之后再在正式集群运行
   //程序中不指定任务运行模式，在提交任务的时候再指定运行模式
-//  val sparkConf = new SparkConf().setAppName("wordcountscala").setMaster("local")
-  val sparkConf = new SparkConf().setAppName("wordcountscala")
+  val sparkConf = new SparkConf().setAppName("wordcountscala").setMaster("local")
+//  val sparkConf = new SparkConf().setAppName("wordcountscala")
   val sparkContext = new SparkContext(sparkConf)
 
   var textFile = "E:\\BaiduNetdiskDownload\\data\\word.txt"
