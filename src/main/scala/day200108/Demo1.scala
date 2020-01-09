@@ -15,7 +15,6 @@ object Demo1 {
   def main(args: Array[String]): Unit = {
     //sparksession可以直接连接到hive .master("local") 本地没有hive
     val spark: SparkSession = SparkSession.builder().appName("hive2mysql").enableHiveSupport().getOrCreate()
-
     //性能优化相关参数 只对次应用程序有效
 //    val spark: SparkSession = SparkSession.builder().appName("hive2mysql").enableHiveSupport()
 //      .config("spark.sql.autoBroadcastJoinThreshold", "50").getOrCreate()

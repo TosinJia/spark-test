@@ -1,5 +1,6 @@
 package day200108
 
+
 /**
  * 学生表
  * @param snum 编号
