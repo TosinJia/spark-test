@@ -9,7 +9,6 @@ import org.apache.log4j.{Level, Logger}
 
 object SparksqlDemo {
   def main(args: Array[String]): Unit = {
-
     //去除无用INFO
     Logger.getLogger("org.apache.spark").setLevel(Level.ERROR)
     Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
