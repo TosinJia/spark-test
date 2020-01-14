@@ -87,6 +87,19 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-flume -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-flume_2.11</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-flume-sink -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-flume-sink_2.11</artifactId>
+            <version>2.1.0</version>
+        </dependency>
     </dependencies>
 
     <!-- scala打包工具 -->
