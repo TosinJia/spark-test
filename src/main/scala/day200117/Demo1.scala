@@ -7,7 +7,7 @@ import org.apache.spark.sql.SparkSession
  * 机器学习
  * 线性回归
  * [root@bd-01-01 spark-2.4.4-bin-hadoop2.7]# ./bin/run-example mllib.LinearRegression ./data/mllib/sample_linear_regression_data.txt
- * spark-mllib_2.11
+ * https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.11/2.2.0
  */
 object Demo1 {
   def main(args: Array[String]): Unit = {

@@ -100,6 +100,21 @@
             <artifactId>spark-streaming-flume-sink_2.11</artifactId>
             <version>2.1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!-- provider如果存在，那么运行时该Jar包不存在，也不会打包到最终的发布版本中，只是编译器有效 -->
+            <!--<scope>provided</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-graphx_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!-- provider如果存在，那么运行时该Jar包不存在，也不会打包到最终的发布版本中，只是编译器有效 -->
+            <!--<scope>provided</scope>-->
+        </dependency>
     </dependencies>
 
     <!-- scala打包工具 -->
